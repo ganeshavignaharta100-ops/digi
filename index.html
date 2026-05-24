@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="description" content="DigiProTax – Expert Tax Consultancy. ITR Filing, GST, TDS, ROC Compliance, Tax Planning, Audit Advisory, Business Registration & Certificates. AY 2026-27.">
+<title>DigiProTax | Expert Tax & Compliance Services</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════
+   ROOT + RESET
+═══════════════════════════════════════ */
+:root{
+  --gold:#C9A84C;--gold2:#F0D060;--gold3:#96742a;
+  --gold-bg:rgba(201,168,76,.08);--gold-bd:rgba(201,168,76,.2);
+  --black:#050508;--navy:#060D1F;--navy2:#0a1628;
+  --white:#F5F0E8;--muted:rgba(245,240,232,.55);
+  --red:#FF3B3B;--teal:#00D4CC;--green:#25D366;
+  --card-bg:rgba(255,255,255,.03);--card-bd:rgba(255,255,255,.08);
+  --radius:16px;--radius-sm:10px;
+  --transition:all .32s cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  background:var(--black);color:var(--white);
+  font-family:'Outfit',sans-serif;font-weight:400;
+  line-height:1.6;overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;outline:none}
+::selection{background:var(--gold);color:#000}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:4px}
+
+/* scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--black)}
+::-webkit-scrollbar-thumb{background:var(--gold3);border-radius:3px}
+
+/* ═══════════════════════════════════════
+   UTILITY
+═══════════════════════════════════════ */
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+.section{padding:96px 0}
+.section-label{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:.62rem;font-weight:700;letter-spacing:3px;
+  text-transform:uppercase;color:var(--gold);
+  margin-bottom:14px;
+}
+.section-label::before{content:'';width:22px;height:2px;background:var(--gold);border-radius:2px}
+.section-title{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(2.6rem,5vw,3.8rem);line-height:.96;
+  color:var(--white);margin-bottom:16px;
+}
+.section-title em{color:var(--gold);font-style:normal}
+.section-sub{font-size:1rem;color:var(--muted);max-width:560px;line-height:1.7;font-weight:400}
+.gold{color:var(--gold)}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 28px;border-radius:50px;
+  font-weight:700;font-size:.88rem;letter-spacing:.3px;
+  transition:var(--transition);cursor:pointer;border:none;
+}
+.btn-gold{background:var(--gold);color:#000}
+.btn-gold:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 12px 32px rgba(201,168,76,.35)}
+.btn-outline{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,.2)}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px)}
+.btn-wa{background:var(--green);color:#fff}
+.btn-wa:hover{background:#1ebe58;transform:translateY(-2px);box-shadow:0 12px 32px rgba(37,211,102,.3)}
+
+/* ═══════════════════════════════════════
+   NOISE TEXTURE OVERLAY
+═══════════════════════════════════════ */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");
+  pointer-events:none;z-index:0;opacity:.5;
+}
+
+/* ═══════════════════════════════════════
+   NAVBAR
+═══════════════════════════════════════ */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:900;
+  padding:0 24px;
+  transition:all .4s ease;
+}
+.nav.scrolled{
+  background:rgba(5,5,8,.92);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+  border-bottom:1px solid rgba(201,168,76,.12);
+  padding:0 24px;
+}
+.nav-inner{
+  max-width:1140px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  height:72px;
+}
+.nav-logo{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:1.6rem;letter-spacing:2px;color:var(--white);
+  display:flex;align-items:center;gap:8px;
+}
+.nav-logo em{color:var(--gold);font-style:normal}
+.nav-logo span{
+  font-size:.55rem;font-family:'Outfit',sans-serif;font-weight:600;
+  color:rgba(255,255,255,.4);letter-spacing:2px;text-transform:uppercase;
+  border-left:1px solid rgba(255,255,255,.15);padding-left:10px;margin-left:4px;
+}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{
+  font-size:.85rem;font-weight:500;color:var(--muted);
+  letter-spacing:.3px;transition:color .2s;position:relative;
+}
+.nav-links a::after{
+  content:'';position:absolute;bottom:-3px;left:0;right:0;
+  height:1px;background:var(--gold);transform:scaleX(0);
+  transform-origin:left;transition:transform .3s ease;
+}
+.nav-links a:hover{color:var(--white)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{display:flex;align-items:center;gap:12px}
+.nav-phone{
+  font-family:'Space Mono',monospace;font-size:.78rem;
+  color:var(--gold);display:flex;align-items:center;gap:6px;
+}
+.hamburger{
+  display:none;flex-direction:column;gap:5px;
+  background:none;border:none;cursor:pointer;padding:4px;
+}
+.hamburger span{width:24px;height:2px;background:var(--white);border-radius:2px;transition:var(--transition)}
+.mob-menu{
+  display:none;position:fixed;inset:0;top:72px;
+  background:rgba(5,5,8,.97);backdrop-filter:blur(20px);
+  z-index:850;flex-direction:column;align-items:center;
+  justify-content:center;gap:32px;
+}
+.mob-menu.open{display:flex}
+.mob-menu a{font-size:1.8rem;font-family:'Bebas Neue',sans-serif;color:var(--white);letter-spacing:2px}
+.mob-menu a:hover{color:var(--gold)}
+.mob-phone{font-family:'Space Mono',monospace;color:var(--gold);font-size:1rem}
+
+/* ═══════════════════════════════════════
+   HERO
+═══════════════════════════════════════ */
+.hero{
+  min-height:100vh;display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  background:var(--navy);
+}
+.hero-canvas{position:absolute;inset:0;z-index:0}
+.hero-bg-grid{
+  position:absolute;inset:0;z-index:0;
+  background-image:
+    linear-gradient(rgba(201,168,76,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(201,168,76,.04) 1px,transparent 1px);
+  background-size:60px 60px;
+}
+.hero-glow{
+  position:absolute;top:-20%;right:-10%;width:700px;height:700px;
+  border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(201,168,76,.12) 0%,transparent 60%);
+}
+.hero-glow2{
+  position:absolute;bottom:-20%;left:-10%;width:500px;height:500px;
+  border-radius:50%;pointer-events:none;z-index:0;
+  background:radial-gradient(circle,rgba(0,212,204,.05) 0%,transparent 60%);
+}
+.hero-inner{
+  position:relative;z-index:1;
+  max-width:1140px;margin:0 auto;padding:0 24px;
+  padding-top:100px;padding-bottom:80px;
+  display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.3);
+  border-radius:30px;padding:7px 18px;font-size:.7rem;
+  font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:24px;
+  animation:fadeSlideUp .6s .1s both;
+}
+.hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--gold);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.4)}}
+
+.hero-h1{
+  font-family:'Bebas Neue',sans-serif;
+  font-size:clamp(3.2rem,6vw,5rem);line-height:.92;
+  color:var(--white);margin-bottom:20px;
+  animation:fadeSlideUp .6s .2s both;
+}
+.hero-h1 em{color:var(--gold);font-style:normal}
+.hero-h1 .block{display:block}
+.hero-sub{
+  font-size:1.05rem;color:var(--muted);line-height:1.7;
+  margin-bottom:32px;max-width:500px;
+  animation:fadeSlideUp .6s .3s both;
+}
+.hero-actions{
+  display:flex;flex-wrap:wrap;gap:12px;
+  animation:fadeSlideUp .6s .4s both;
+}
+.hero-stats{
+  display:flex;gap:28px;margin-top:44px;padding-top:36px;
+  border-top:1px solid rgba(255,255,255,.08);
+  animation:fadeSlideUp .6s .5s both;
+}
+.hero-stat .sv{
+  font-family:'Bebas Neue',sans-serif;font-size:2.4rem;
+  color:var(--gold);line-height:1;
+}
+.hero-stat .sk{font-size:.72rem;color:var(--muted);margin-top:3px;font-weight:500;letter-spacing:.3px}
+
+/* hero right – floating card */
+.hero-right{
+  position:relative;
+  animation:fadeSlideUp .6s .3s both;
+}
+.hero-card{
+  background:rgba(255,255,255,.04);
+  border:1px solid rgba(201,168,76,.2);
+  border-radius:24px;padding:32px;
+  backdrop-filter:blur(10px);
+  position:relative;overflow:hidden;
+}
+.hero-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+.hero-card-title{
+  font-family:'Bebas Neue',sans-serif;font-size:1.4rem;
+  letter-spacing:1px;color:var(--gold);margin-bottom:20px;
+  display:flex;align-items:center;gap:10px;
+}
+.hc-list{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+.hc-item{
+  display:flex;align-items:center;gap:12px;
+  padding:12px 14px;border-radius:10px;
+  background:rgba(201,168,76,.05);
+  border:1px solid rgba(201,168,76,.12);
+  transition:var(--transition);
+}
+.hc-item:hover{background:rgba(201,168,76,.1);border-color:rgba(201,168,76,.3);transform:translateX(4px)}
+.hc-icon{font-size:1.3rem;flex-shrink:0;width:32px;text-align:center}
+.hc-text .ht{font-size:.8rem;font-weight:700;color:var(--white);line-height:1.2}
+.hc-text .hs{font-size:.65rem;color:var(--muted)}
+.hero-deadline{
+  background:rgba(255,59,59,.08);border:1px solid rgba(255,59,59,.25);
+  border-radius:12px;padding:14px 16px;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:12px;
+}
+.hd-left p{font-size:.6rem;color:rgba(255,59,59,.8);font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:2px}
+.hd-left b{font-size:.92rem;font-weight:700;color:#fff}
+.hd-right{
+  background:var(--red);border-radius:8px;padding:8px 14px;
+  font-size:.7rem;font-weight:700;color:#fff;letter-spacing:.5px;white-space:nowrap;
+}
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ═══════════════════════════════════════
+   SERVICES
+═══════════════════════════════════════ */
+.services{background:var(--black);position:relative}
+.services::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),transparent);
+}
+.services-header{text-align:center;margin-bottom:56px}
+.services-header .section-label{justify-content:center}
+.services-header .section-label::before{display:none}
+.services-header .section-label::after{content:'';width:22px;height:2px;background:var(--gold);border-radius:2px}
+.services-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:18px;
+}
+
+/* FLIP CARD */
+.flip-wrap{height:260px;perspective:1000px;cursor:pointer}
+.flip-inner{
+  position:relative;width:100%;height:100%;
+  transform-style:preserve-3d;
+  transition:transform .6s cubic-bezier(.16,1,.3,1);
+}
+.flip-wrap:hover .flip-inner,.flip-wrap:focus-within .flip-inner{transform:rotateY(180deg)}
+.flip-face{
+  position:absolute;inset:0;border-radius:var(--radius);
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  padding:28px 22px;
+  display:flex;flex-direction:column;
+}
+/* FRONT */
+.flip-front{
+  background:var(--card-bg);
+  border:1px solid var(--card-bd);
+  align-items:flex-start;justify-content:flex-end;
+  overflow:hidden;
+  transition:border-color .3s;
+}
+.flip-wrap:hover .flip-front{border-color:var(--gold-bd)}
+.flip-front::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,var(--gold-bg) 0%,transparent 60%);
+  opacity:0;transition:opacity .3s;
+}
+.flip-wrap:hover .flip-front::before{opacity:1}
+.flip-icon{font-size:2.8rem;margin-bottom:16px;display:block;
+  transition:transform .3s ease;
+}
+.flip-wrap:hover .flip-icon{transform:scale(1.1)}
+.flip-num{
+  position:absolute;top:18px;right:18px;
+  font-family:'Space Mono',monospace;font-size:.6rem;
+  color:rgba(255,255,255,.15);font-weight:700;
+}
+.flip-title{font-size:1rem;font-weight:700;color:var(--white);line-height:1.3;margin-bottom:6px}
+.flip-sub{font-size:.62rem;color:var(--muted);line-height:1.4}
+.flip-tag{
+  position:absolute;bottom:0;left:0;right:0;
+  background:linear-gradient(0deg,rgba(201,168,76,.15),transparent);
+  padding:14px 20px 20px;
+  font-size:.58rem;font-weight:700;color:var(--gold);
+  letter-spacing:1.5px;text-transform:uppercase;
+  opacity:0;transition:opacity .3s;
+}
+.flip-wrap:hover .flip-tag{opacity:1}
+/* BACK */
+.flip-back{
+  background:linear-gradient(135deg,rgba(201,168,76,.12),rgba(201,168,76,.04));
+  border:1px solid rgba(201,168,76,.3);
+  transform:rotateY(180deg);
+  justify-content:space-between;
+}
+.flip-back-title{
+  font-family:'Bebas Neue',sans-serif;font-size:1.3rem;
+  color:var(--gold);letter-spacing:1px;margin-bottom:12px;
+}
+.flip-back-list{list-style:none;display:flex;flex-direction:column;gap:7px;flex:1}
+.flip-back-list li{
+  display:flex;align-items:flex-start;gap:7px;
+  font-size:.68rem;color:var(--white);line-height:1.45;
+}
+.flip-back-list li::before{content:'→';color:var(--gold);flex-shrink:0;margin-top:1px;font-weight:700}
+.flip-back-cta{
+  display:flex;align-items:center;justify-content:space-between;
+  padding-top:12px;border-top:1px solid rgba(201,168,76,.2);
+  margin-top:8px;
+}
+.flip-back-cta span{font-size:.62rem;color:var(--muted)}
+.flip-back-cta a{
+  font-size:.68rem;font-weight:700;color:var(--gold);
+  display:flex;align-items:center;gap:4px;
+}
+.flip-back-cta a:hover{text-decoration:underline}
+.flip-hint{
+  text-align:center;margin-top:18px;font-size:.7rem;
+  color:rgba(255,255,255,.25);letter-spacing:.5px;
+  display:flex;align-items:center;justify-content:center;gap:6px;
+}
+
+/* ═══════════════════════════════════════
+   WHY US
+═══════════════════════════════════════ */
+.why{
+  background:var(--navy);position:relative;overflow:hidden;
+}
+.why::after{
+  content:'';position:absolute;top:-200px;right:-200px;width:600px;height:600px;
+  border-radius:50%;pointer-events:none;
+  background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 65%);
+}
+.why-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.why-visual{position:relative}
+.why-big-num{
+  font-family:'Bebas Neue',sans-serif;font-size:10rem;
+  color:rgba(201,168,76,.06);line-height:.8;
+  position:absolute;top:-20px;left:-20px;pointer-events:none;
+  user-select:none;
+}
+.why-cards{display:flex;flex-direction:column;gap:14px;position:relative;z-index:1}
+.why-card{
+  display:flex;align-items:flex-start;gap:14px;
+  padding:18px 20px;border-radius:var(--radius);
+  background:var(--card-bg);border:1px solid var(--card-bd);
+  transition:var(--transition);
+}
+.why-card:hover{border-color:var(--gold-bd);background:var(--gold-bg);transform:translateX(6px)}
+.why-card-icon{
+  width:44px;height:44px;border-radius:10px;
+  background:var(--gold-bg);border:1px solid var(--gold-bd);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;
+  transition:var(--transition);
+}
+.why-card:hover .why-card-icon{background:var(--gold);transform:scale(1.1)}
+.why-card-text h4{font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:4px}
+.why-card-text p{font-size:.72rem;color:var(--muted);line-height:1.5}
+.why-right{position:relative;z-index:1}
+.why-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px}
+.why-stat{
+  background:var(--card-bg);border:1px solid var(--card-bd);
+  border-radius:var(--radius);padding:22px 18px;text-align:center;
+  transition:var(--transition);
+}
+.why-stat:hover{border-color:var(--gold-bd);background:var(--gold-bg)}
+.why-stat .ws-v{
+  font-family:'Bebas Neue',sans-serif;font-size:2.6rem;
+  color:var(--gold);line-height:1;
+}
+.why-stat .ws-k{font-size:.68rem;color:var(--muted);margin-top:5px;line-height:1.4}
+
+/* ═══════════════════════════════════════
+   PROCESS
+═══════════════════════════════════════ */
+.process{background:var(--black)}
+.process-header{text-align:center;margin-bottom:56px}
+.process-header .section-label{justify-content:center}
+.process-header .section-label::before{display:none}
+.process-header .section-label::after{content:'';width:22px;height:2px;background:var(--gold);border-radius:2px}
+.process-steps{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:0;position:relative;
+}
+.process-steps::before{
+  content:'';position:absolute;top:36px;left:12%;right:12%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(201,168,76,.3),var(--gold),rgba(201,168,76,.3),transparent);
+  z-index:0;
+}
+.p-step{
+  display:flex;flex-direction:column;align-items:center;
+  text-align:center;padding:0 16px;position:relative;z-index:1;
+}
+.p-num{
+  width:72px;height:72px;border-radius:50%;
+  background:var(--navy);border:2px solid rgba(201,168,76,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--gold);
+  margin-bottom:20px;
+  transition:var(--transition);
+  box-shadow:0 0 0 6px var(--black);
+}
+.p-step:hover .p-num{background:var(--gold);color:#000;border-color:var(--gold);box-shadow:0 0 30px rgba(201,168,76,.4),0 0 0 6px var(--black)}
+.p-title{font-size:.92rem;font-weight:700;color:var(--white);margin-bottom:6px}
+.p-desc{font-size:.7rem;color:var(--muted);line-height:1.6}
+.p-icon{font-size:1.4rem;margin-bottom:10px}
+
+/* ═══════════════════════════════════════
+   TESTIMONIALS
+═══════════════════════════════════════ */
+.testimonials{background:var(--navy);position:relative;overflow:hidden}
+.testi-header{text-align:center;margin-bottom:52px}
+.testi-header .section-label{justify-content:center}
+.testi-header .section-label::before{display:none}
+.testi-header .section-label::after{content:'';width:22px;height:2px;background:var(--gold);border-radius:2px}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.testi-card{
+  background:var(--card-bg);border:1px solid var(--card-bd);
+  border-radius:var(--radius);padding:28px 24px;
+  position:relative;transition:var(--transition);
+  display:flex;flex-direction:column;
+}
+.testi-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;border-radius:var(--radius) var(--radius) 0 0;
+  background:linear-gradient(90deg,var(--gold),var(--gold2));
+  transform:scaleX(0);transform-origin:left;transition:transform .4s ease;
+}
+.testi-card:hover{border-color:var(--gold-bd);transform:translateY(-4px);box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.testi-card:hover::before{transform:scaleX(1)}
+.testi-quote{font-size:2.5rem;color:var(--gold);opacity:.3;line-height:1;margin-bottom:12px;font-family:'Georgia',serif}
+.testi-text{font-size:.82rem;color:var(--muted);line-height:1.7;flex:1;margin-bottom:18px;font-style:italic}
+.testi-author{display:flex;align-items:center;gap:12px;padding-top:16px;border-top:1px solid rgba(255,255,255,.06)}
+.testi-avatar{
+  width:42px;height:42px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--gold3));
+  display:flex;align-items:center;justify-content:center;
+  font-size:1rem;font-weight:800;color:#000;flex-shrink:0;
+  font-family:'Bebas Neue',sans-serif;font-size:1.2rem;
+}
+.testi-name{font-size:.8rem;font-weight:700;color:var(--white)}
+.testi-role{font-size:.62rem;color:var(--muted);margin-top:1px}
+.testi-stars{color:var(--gold);font-size:.75rem;letter-spacing:1px;margin-bottom:10px}
+
+/* ═══════════════════════════════════════
+   CTA BANNER
+═══════════════════════════════════════ */
+.cta-band{
+  background:linear-gradient(135deg,var(--navy) 0%,#0d1f3c 50%,var(--navy) 100%);
+  position:relative;overflow:hidden;padding:80px 0;
+}
+.cta-band::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(201,168,76,.06) 1px,transparent 1px),
+             linear-gradient(rgba(201,168,76,.06) 1px,transparent 1px);
+  background-size:50px 50px;
+}
+.cta-band-glow{
+  position:absolute;top:-100px;left:50%;transform:translateX(-50%);
+  width:600px;height:400px;border-radius:50%;
+  background:radial-gradient(circle,rgba(201,168,76,.1) 0%,transparent 65%);
+  pointer-events:none;
+}
+.cta-band-inner{
+  position:relative;z-index:1;text-align:center;
+  max-width:680px;margin:0 auto;padding:0 24px;
+}
+.cta-band-h{
+  font-family:'Bebas Neue',sans-serif;font-size:clamp(2.6rem,5vw,3.8rem);
+  color:var(--white);line-height:1;margin-bottom:16px;
+}
+.cta-band-h em{color:var(--gold);font-style:normal}
+.cta-band-p{font-size:.95rem;color:var(--muted);margin-bottom:36px;line-height:1.65}
+.cta-band-btns{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.cta-band-note{font-size:.7rem;color:rgba(255,255,255,.3);margin-top:20px}
+
+/* ═══════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════ */
+.contact{background:var(--black)}
+.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:22px}
+.c-item{
+  display:flex;align-items:flex-start;gap:16px;
+  padding:20px;border-radius:var(--radius);
+  background:var(--card-bg);border:1px solid var(--card-bd);
+  transition:var(--transition);
+}
+.c-item:hover{border-color:var(--gold-bd);background:var(--gold-bg)}
+.c-icon{
+  width:46px;height:46px;border-radius:10px;
+  background:var(--gold-bg);border:1px solid var(--gold-bd);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.3rem;flex-shrink:0;
+}
+.c-text p{font-size:.7rem;color:var(--muted);margin-bottom:3px;text-transform:uppercase;letter-spacing:1.5px;font-weight:600}
+.c-text b{font-size:.92rem;font-weight:700;color:var(--white)}
+.c-text a{font-size:.92rem;font-weight:700;color:var(--gold);transition:color .2s}
+.c-text a:hover{color:var(--gold2)}
+/* simple contact form */
+.contact-form{
+  background:rgba(255,255,255,.03);
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:20px;padding:32px;
+}
+.cf-title{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;letter-spacing:1px;color:var(--gold);margin-bottom:6px}
+.cf-sub{font-size:.78rem;color:var(--muted);margin-bottom:24px}
+.cf-field{margin-bottom:16px}
+.cf-field label{display:block;font-size:.72rem;font-weight:600;color:var(--muted);margin-bottom:6px;letter-spacing:.5px;text-transform:uppercase}
+.cf-field input,.cf-field select,.cf-field textarea{
+  width:100%;background:rgba(255,255,255,.04);
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:var(--radius-sm);padding:13px 16px;
+  color:var(--white);font-family:'Outfit',sans-serif;font-size:.85rem;
+  outline:none;transition:border-color .2s,box-shadow .2s;
+  appearance:none;
+}
+.cf-field input:focus,.cf-field select:focus,.cf-field textarea:focus{
+  border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,168,76,.12);
+}
+.cf-field input::placeholder,.cf-field textarea::placeholder{color:rgba(255,255,255,.2)}
+.cf-field select option{background:#0d1628;color:var(--white)}
+.cf-field textarea{resize:vertical;min-height:90px}
+.cf-submit{
+  width:100%;padding:14px;border-radius:50px;
+  background:var(--gold);color:#000;font-weight:800;
+  font-size:.88rem;letter-spacing:.5px;font-family:'Outfit',sans-serif;
+  cursor:pointer;border:none;transition:var(--transition);
+  display:flex;align-items:center;justify-content:center;gap:8px;
+}
+.cf-submit:hover{background:var(--gold2);transform:translateY(-2px);box-shadow:0 12px 30px rgba(201,168,76,.35)}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+/* ═══════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════ */
+.footer{
+  background:var(--navy);border-top:1px solid rgba(201,168,76,.12);
+  padding:60px 0 32px;
+}
+.footer-top{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:48px;
+  margin-bottom:48px;
+}
+.footer-brand .fb-logo{
+  font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:2px;
+  color:var(--white);margin-bottom:10px;display:block;
+}
+.footer-brand .fb-logo em{color:var(--gold);font-style:normal}
+.footer-brand p{font-size:.78rem;color:var(--muted);line-height:1.7;margin-bottom:16px}
+.footer-brand .fb-ay{
+  display:inline-block;
+  background:rgba(201,168,76,.1);border:1px solid rgba(201,168,76,.25);
+  border-radius:20px;padding:5px 14px;
+  font-size:.62rem;font-weight:700;color:var(--gold);letter-spacing:1px;
+}
+.footer-col h5{
+  font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--gold);margin-bottom:18px;
+}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col ul li a{
+  font-size:.8rem;color:var(--muted);transition:color .2s;
+  display:flex;align-items:center;gap:6px;
+}
+.footer-col ul li a::before{content:'→';font-size:.65rem;color:rgba(201,168,76,.4);transition:color .2s}
+.footer-col ul li a:hover{color:var(--white)}
+.footer-col ul li a:hover::before{color:var(--gold)}
+.footer-bottom{
+  padding-top:24px;border-top:1px solid rgba(255,255,255,.06);
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:12px;
+}
+.footer-bottom p{font-size:.72rem;color:rgba(255,255,255,.3)}
+.footer-bottom .fb-right{display:flex;align-items:center;gap:16px}
+.footer-bottom .fb-right a{font-size:.72rem;color:rgba(255,255,255,.3);transition:color .2s}
+.footer-bottom .fb-right a:hover{color:var(--gold)}
+
+/* ═══════════════════════════════════════
+   FLOATING WHATSAPP
+═══════════════════════════════════════ */
+.wa-float{
+  position:fixed;bottom:28px;right:28px;z-index:999;
+  display:flex;flex-direction:column;align-items:flex-end;gap:10px;
+}
+.wa-bubble{
+  background:rgba(5,5,8,.85);border:1px solid rgba(255,255,255,.1);
+  border-radius:12px;padding:12px 16px;backdrop-filter:blur(12px);
+  opacity:0;transform:translateY(8px) scale(.95);
+  pointer-events:none;transition:var(--transition);
+  white-space:nowrap;
+}
+.wa-bubble p{font-size:.72rem;color:var(--muted);margin-bottom:2px}
+.wa-bubble b{font-size:.85rem;font-weight:700;color:var(--white)}
+.wa-btn-float{
+  width:60px;height:60px;border-radius:50%;
+  background:var(--green);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 24px rgba(37,211,102,.45);
+  transition:var(--transition);position:relative;
+  cursor:pointer;border:none;
+  animation:waFloat 3s ease-in-out infinite;
+}
+@keyframes waFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.wa-btn-float:hover{transform:scale(1.1)!important;box-shadow:0 10px 36px rgba(37,211,102,.55)}
+.wa-btn-float svg{width:28px;height:28px;fill:#fff}
+.wa-ping{
+  position:absolute;top:0;right:0;width:16px;height:16px;
+  border-radius:50%;background:var(--red);
+  display:flex;align-items:center;justify-content:center;
+  font-size:.5rem;font-weight:700;color:#fff;
+}
+.wa-ping::before{
+  content:'';position:absolute;inset:-3px;border-radius:50%;
+  background:rgba(255,59,59,.4);animation:ping 2s infinite;
+}
+@keyframes ping{0%{transform:scale(1);opacity:.8}100%{transform:scale(2);opacity:0}}
+.wa-float:hover .wa-bubble{opacity:1;transform:translateY(0) scale(1);pointer-events:all}
+
+/* ═══════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-left{opacity:0;transform:translateX(-30px);transition:opacity .7s ease,transform .7s ease}
+.reveal-left.visible{opacity:1;transform:translateX(0)}
+.reveal-right{opacity:0;transform:translateX(30px);transition:opacity .7s ease,transform .7s ease}
+.reveal-right.visible{opacity:1;transform:translateX(0)}
+.delay-1{transition-delay:.1s}.delay-2{transition-delay:.2s}
+.delay-3{transition-delay:.3s}.delay-4{transition-delay:.4s}
+.delay-5{transition-delay:.5s}.delay-6{transition-delay:.6s}
+.delay-7{transition-delay:.7s}.delay-8{transition-delay:.8s}
+
+/* ═══════════════════════════════════════
+   BACK TO TOP
+═══════════════════════════════════════ */
+.btt{
+  position:fixed;bottom:100px;right:28px;z-index:888;
+  width:42px;height:42px;border-radius:50%;
+  background:rgba(201,168,76,.15);border:1px solid rgba(201,168,76,.3);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--gold);font-size:1rem;cursor:pointer;
+  transition:var(--transition);opacity:0;pointer-events:none;
+}
+.btt.show{opacity:1;pointer-events:all}
+.btt:hover{background:var(--gold);color:#000}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE
+═══════════════════════════════════════ */
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:40px;padding-top:120px}
+  .hero-right{display:none}
+  .services-grid{grid-template-columns:repeat(2,1fr)}
+  .why-inner{grid-template-columns:1fr}
+  .why-visual{display:none}
+  .process-steps{grid-template-columns:repeat(2,1fr);gap:32px}
+  .process-steps::before{display:none}
+  .testi-grid{grid-template-columns:1fr}
+  .contact-inner{grid-template-columns:1fr}
+  .footer-top{grid-template-columns:1fr 1fr;gap:32px}
+  .nav-links,.nav-phone{display:none}
+  .hamburger{display:flex}
+  .cf-row{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+  .section{padding:64px 0}
+  .services-grid{grid-template-columns:1fr 1fr;gap:12px}
+  .flip-wrap{height:220px}
+  .hero-stats{flex-wrap:wrap;gap:20px}
+  .footer-top{grid-template-columns:1fr}
+  .footer-bottom{flex-direction:column;text-align:center}
+  .process-steps{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<nav class="nav" id="navbar" role="navigation" aria-label="Main navigation">
+  <div class="nav-inner">
+    <a href="#home" class="nav-logo" aria-label="DigiProTax Home">
+      DIGI<em>PRO</em>TAX
+      <span>Tax &amp; Compliance</span>
+    </a>
+    <div class="nav-links" role="menubar">
+      <a href="#services" role="menuitem">Services</a>
+      <a href="#why-us" role="menuitem">Why Us</a>
+      <a href="#process" role="menuitem">Process</a>
+      <a href="#contact" role="menuitem">Contact</a>
+    </div>
+    <div class="nav-cta">
+      <span class="nav-phone" aria-label="Phone number">📞 8286383816</span>
+      <a href="https://wa.me/918286383816" class="btn btn-wa" aria-label="Chat on WhatsApp" target="_blank" rel="noopener">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp
+      </a>
+    </div>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="mob-menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+<div class="mob-menu" id="mob-menu" role="dialog" aria-modal="true" aria-label="Mobile menu">
+  <a href="#services" onclick="closeMob()">Services</a>
+  <a href="#why-us" onclick="closeMob()">Why Us</a>
+  <a href="#process" onclick="closeMob()">Process</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <a href="https://wa.me/918286383816" target="_blank" rel="noopener" class="mob-phone" onclick="closeMob()">📲 8286383816</a>
+</div>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="home" aria-label="Hero section">
+  <canvas id="hero-canvas" class="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-bg-grid" aria-hidden="true"></div>
+  <div class="hero-glow" aria-hidden="true"></div>
+  <div class="hero-glow2" aria-hidden="true"></div>
+  <div class="hero-inner container">
+    <div class="hero-content">
+      <div class="hero-badge" role="status">
+        <span class="dot" aria-hidden="true"></span>
+        AY 2026–27 · ITR Filing Open
+      </div>
+      <h1 class="hero-h1">
+        <span class="block">Aapka Tax,</span>
+        <span class="block"><em>Hamari</em></span>
+        <span class="block">Jimmedari</span>
+      </h1>
+      <p class="hero-sub">DigiProTax — India's trusted tax consultancy for ITR filing, GST, TDS, ROC compliance, tax planning, audit advisory &amp; business registration. AY 2026–27 experts.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/918286383816" class="btn btn-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp for free consultation">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Free Consultation
+        </a>
+        <a href="#services" class="btn btn-outline" aria-label="View our services">View Services</a>
+      </div>
+      <div class="hero-stats" role="list" aria-label="Company statistics">
+        <div class="hero-stat" role="listitem"><div class="sv" aria-label="500 plus">500+</div><div class="sk">Happy Clients</div></div>
+        <div class="hero-stat" role="listitem"><div class="sv">8+</div><div class="sk">Expert Services</div></div>
+        <div class="hero-stat" role="listitem"><div class="sv">24hr</div><div class="sk">Response Time</div></div>
+        <div class="hero-stat" role="listitem"><div class="sv">100%</div><div class="sk">Online Service</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card" role="complementary" aria-label="Quick services overview">
+        <div class="hero-card-title" aria-hidden="true">🏛️ &nbsp;DigiProTax Services</div>
+        <div class="hc-list">
+          <div class="hc-item"><span class="hc-icon" aria-hidden="true">📄</span><div class="hc-text"><div class="ht">ITR Filing AY 2026–27</div><div class="hs">Deadline: 31 July 2026</div></div></div>
+          <div class="hc-item"><span class="hc-icon" aria-hidden="true">🧾</span><div class="hc-text"><div class="ht">GST Registration &amp; Returns</div><div class="hs">GSTR-1, 3B, 9 Filing</div></div></div>
+          <div class="hc-item"><span class="hc-icon" aria-hidden="true">🏦</span><div class="hc-text"><div class="ht">TDS &amp; Return Filing</div><div class="hs">Form 24Q, 26Q, 27Q</div></div></div>
+          <div class="hc-item"><span class="hc-icon" aria-hidden="true">🏢</span><div class="hc-text"><div class="ht">ROC Compliance</div><div class="hs">AOC-4, MGT-7, DIR-3 KYC</div></div></div>
+        </div>
+        <div class="hero-deadline" role="alert" aria-label="ITR deadline alert">
+          <div class="hd-left">
+            <p>⚠️ ITR Last Date</p>
+            <b>31 July 2026 — File Karo Abhi!</b>
+          </div>
+          <a href="https://wa.me/918286383816" class="hd-right" target="_blank" rel="noopener" aria-label="File ITR now on WhatsApp">File Now →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ SERVICES ══════════ -->
+<section class="services section" id="services" aria-labelledby="services-heading">
+  <div class="container">
+    <div class="services-header reveal">
+      <div class="section-label">Our Expertise</div>
+      <h2 class="section-title" id="services-heading">8 Expert <em>Services</em></h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Hover over each card to see full details. Complete tax &amp; compliance solutions under one roof.</p>
+    </div>
+    <div class="services-grid" role="list" aria-label="Our services">
+
+      <!-- SERVICE 1 -->
+      <div class="flip-wrap reveal delay-1" role="listitem" tabindex="0" aria-label="ITR Filing service - hover or press Enter for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front" aria-hidden="true">
+            <span class="flip-num">01</span>
+            <span class="flip-icon">📄</span>
+            <div class="flip-title">ITR Filing</div>
+            <div class="flip-sub">AY 2026–27 · FY 2025–26</div>
+            <div class="flip-tag">Hover to explore →</div>
+          </div>
+          <div class="flip-face flip-back" aria-label="ITR Filing details">
+            <div class="flip-back-title">ITR Filing</div>
+            <ul class="flip-back-list">
+              <li>ITR-1 to ITR-7 — All form types</li>
+              <li>Salaried, Business, Professional &amp; NRI</li>
+              <li>Capital gains, rental &amp; foreign income</li>
+              <li>HRA, LTA, home loan — max deductions</li>
+              <li>TDS refund processing &amp; tracking</li>
+              <li>Deadline: 31 July 2026</li>
+            </ul>
+            <div class="flip-back-cta">
+              <span>AY 2026–27</span>
+              <a href="https://wa.me/918286383816" target="_blank" rel="noopener" aria-label="WhatsApp for ITR Filing">WhatsApp →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE 2 -->
+      <div class="flip-wrap reveal delay-2" role="listitem" tabindex="0" aria-label="GST Services - hover or press Enter for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front" aria-hidden="true">
+            <span class="flip-num">02</span>
+            <span class="flip-icon">🧾</span>
+            <div class="flip-title">GST Services</div>
+            <div class="flip-sub">Registration &amp; Return Filing</div>
+            <div class="flip-tag">Hover to explore →</div>
+          </div>
+          <div class="flip-face flip-back" aria-label="GST Services details">
+            <div class="flip-back-title">GST Services</div>
+            <ul class="flip-back-list">
+              <li>GST Registration — GSTIN in 3–5 days</li>
+              <li>GSTR-1 outward supply returns</li>
+              <li>GSTR-3B monthly summary filing</li>
+              <li>GSTR-9 annual return filing</li>
+              <li>GST notice reply &amp; representation</li>
+              <li>ITC reconciliation &amp; audit support</li>
+            </ul>
+            <div class="flip-back-cta">
+              <span>Monthly Plans</span>
+              <a href="https://wa.me/918286383816" target="_blank" rel="noopener" aria-label="WhatsApp for GST Services">WhatsApp →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE 3 -->
+      <div class="flip-wrap reveal delay-3" role="listitem" tabindex="0" aria-label="TDS and Returns - hover or press Enter for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front" aria-hidden="true">
+            <span class="flip-num">03</span>
+            <span class="flip-icon">🏦</span>
+            <div class="flip-title">TDS &amp; Returns</div>
+            <div class="flip-sub">All Sections Covered</div>
+            <div class="flip-tag">Hover to explore →</div>
+          </div>
+          <div class="flip-face flip-back" aria-label="TDS and Returns details">
+            <div class="flip-back-title">TDS &amp; Returns</div>
+            <ul class="flip-back-list">
+              <li>TDS on salary — Form 24Q</li>
+              <li>TDS on rent — Section 194-I</li>
+              <li>TDS on contractor payments — 194C</li>
+              <li>TDS on professional fees — 194J</li>
+              <li>Property purchase TDS — 26QB</li>
+              <li>Quarterly return filing on time</li>
+            </ul>
+            <div class="flip-back-cta">
+              <span>Q1 Due: 31 Jul 2026</span>
+              <a href="https://wa.me/918286383816" target="_blank" rel="noopener" aria-label="WhatsApp for TDS Services">WhatsApp →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE 4 -->
+      <div class="flip-wrap reveal delay-4" role="listitem" tabindex="0" aria-label="ROC Compliance - hover or press Enter for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front" aria-hidden="true">
+            <span class="flip-num">04</span>
+            <span class="flip-icon">🏢</span>
+            <div class="flip-title">ROC Compliance</div>
+            <div class="flip-sub">Pvt Ltd · LLP · OPC</div>
+            <div class="flip-tag">Hover to explore →</div>
+          </div>
+          <div class="flip-face flip-back" aria-label="ROC Compliance details">
+            <div class="flip-back-title">ROC Compliance</div>
+            <ul class="flip-back-list">
+              <li>AOC-4 — Financial statements filing</li>
+              <li>MGT-7 / MGT-7A — Annual return</li>
+              <li>DIR-3 KYC — Director KYC annual</li>
+              <li>ADT-1 — Auditor appointment</li>
+              <li>INC-20A — Business commencement</li>
+              <li>Avoid strike-off &amp; penalties</li>
+            </ul>
+            <div class="flip-back-cta">
+              <span>FY 2025–26</span>
+              <a href="https://wa.me/918286383816" target="_blank" rel="noopener" aria-label="WhatsApp for ROC Compliance">WhatsApp →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE 5 -->
+      <div class="flip-wrap reveal delay-1" role="listitem" tabindex="0" aria-label="Tax Planning - hover or press Enter for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front" aria-hidden="true">
+            <span class="flip-num">05</span>
+            <span class="flip-icon">🎯</span>
+            <div class="flip-title">Tax Planning</div>
+            <div class="flip-sub">FY 2025–26 Strategy</div>
+            <div class="flip-tag">Hover to explore →</div>
+          </div>
+          <div class="flip-face flip-back" aria-label="Tax Planning details">
+            <div class="flip-back-title">Tax Planning</div>
+            <ul class="flip-back-list">
+              <li>80C investment planning — up to ₹1.5L</li>
+              <li>NPS deduction — extra ₹50K (80CCD)</li>
+              <li>Health insurance planning — 80D</li>
+              <li>Old vs New regime — best choice</li>
+              <li>Advance tax computation &amp; payment</li>
+              <li>Year-round personalised advisory</li>
+            </ul>
+            <div class="flip-back-cta">
+              <span>Free Session</span>
+              <a href="https://wa.me/918286383816" target="_blank" rel="noopener" aria-label="WhatsApp for Tax Planning">WhatsApp →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE 6 -->
+      <div class="flip-wrap reveal delay-2" role="listitem" tabindex="0" aria-label="Audit Advisory - hover or press Enter for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front" aria-hidden="true">
+            <span class="flip-num">06</span>
+            <span class="flip-icon">🔍</span>
+            <div class="flip-title">Audit Advisory</div>
+            <div class="flip-sub">Sec 44AB &amp; More</div>
+            <div class="flip-tag">Hover to explore →</div>
+          </div>
+          <div class="flip-face flip-back" aria-label="Audit Advisory details">
+            <div class="flip-back-title">Audit Advisory</div>
+            <ul class="flip-back-list">
+              <li>Tax audit u/s 44AB — turnover &gt; ₹1Cr</li>
+              <li>Presumptive tax audit — 44AD/44ADA</li>
+              <li>Bank &amp; concurrent audit</li>
+              <li>Internal &amp; management audit</li>
+              <li>Stock audit &amp; revenue audit</li>
+              <li>Income tax notice reply &amp; appeals</li>
+            </ul>
+            <div class="flip-back-cta">
+              <span>FY 2025–26</span>
+              <a href="https://wa.me/918286383816" target="_blank" rel="noopener" aria-label="WhatsApp for Audit Services">WhatsApp →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE 7 -->
+      <div class="flip-wrap reveal delay-3" role="listitem" tabindex="0" aria-label="Business Registration - hover or press Enter for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front" aria-hidden="true">
+            <span class="flip-num">07</span>
+            <span class="flip-icon">🚀</span>
+            <div class="flip-title">Biz Registration</div>
+            <div class="flip-sub">All Structures Covered</div>
+            <div class="flip-tag">Hover to explore →</div>
+          </div>
+          <div class="flip-face flip-back" aria-label="Business Registration details">
+            <div class="flip-back-title">Biz Registration</div>
+            <ul class="flip-back-list">
+              <li>Private Limited Company — 3–5 days</li>
+              <li>One Person Company (OPC)</li>
+              <li>LLP &amp; Partnership Firm</li>
+              <li>Proprietorship registration</li>
+              <li>Section 8 NGO, Trust, Society</li>
+              <li>100% online — no office visit</li>
+            </ul>
+            <div class="flip-back-cta">
+              <span>Free Consultation</span>
+              <a href="https://wa.me/918286383816" target="_blank" rel="noopener" aria-label="WhatsApp for Business Registration">WhatsApp →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SERVICE 8 -->
+      <div class="flip-wrap reveal delay-4" role="listitem" tabindex="0" aria-label="Business Certificates - hover or press Enter for details">
+        <div class="flip-inner">
+          <div class="flip-face flip-front" aria-hidden="true">
+            <span class="flip-num">08</span>
+            <span class="flip-icon">📜</span>
+            <div class="flip-title">Certificates</div>
+            <div class="flip-sub">All Licences &amp; Certs</div>
+            <div class="flip-tag">Hover to explore →</div>
+          </div>
+          <div class="flip-face flip-back" aria-label="Business Certificates details">
+            <div class="flip-back-title">Certificates</div>
+            <ul class="flip-back-list">
+              <li>MSME / Udyam registration</li>
+              <li>FSSAI food licence</li>
+              <li>Import Export Code (IEC)</li>
+              <li>Professional tax certificate</li>
+              <li>Fire NOC certificate</li>
+              <li>ISO certification assistance</li>
+            </ul>
+            <div class="flip-back-cta">
+              <span>Fast Processing</span>
+              <a href="https://wa.me/918286383816" target="_blank" rel="noopener" aria-label="WhatsApp for Certificates">WhatsApp →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <p class="flip-hint reveal" aria-live="polite">🖱️ Hover on each card to see full service details &nbsp;·&nbsp; 📱 Tap on mobile</p>
+  </div>
+</section>
+
+<!-- ══════════ WHY US ══════════ -->
+<section class="why section" id="why-us" aria-labelledby="why-heading">
+  <div class="container">
+    <div class="why-inner">
+      <div class="why-visual" aria-hidden="true">
+        <div class="why-big-num">WHY</div>
+        <div class="why-cards">
+          <div class="why-card reveal delay-1">
+            <div class="why-card-icon" aria-hidden="true">⚡</div>
+            <div class="why-card-text"><h4>Same Day Filing</h4><p>Documents receive karein aur same day ya next day file karein. Zero delays guaranteed.</p></div>
+          </div>
+          <div class="why-card reveal delay-2">
+            <div class="why-card-icon" aria-hidden="true">🔒</div>
+            <div class="why-card-text"><h4>100% Data Confidential</h4><p>Aapka data sirf aapka hai. No sharing, no leaks. Complete data security.</p></div>
+          </div>
+          <div class="why-card reveal delay-3">
+            <div class="why-card-icon" aria-hidden="true">💯</div>
+            <div class="why-card-text"><h4>Accuracy Guaranteed</h4><p>Expert CA-led team ensures zero errors in every filing. No revision required.</p></div>
+          </div>
+          <div class="why-card reveal delay-4">
+            <div class="why-card-icon" aria-hidden="true">💰</div>
+            <div class="why-card-text"><h4>Affordable &amp; Transparent</h4><p>No hidden charges. Clear pricing upfront. Best value for professional services.</p></div>
+          </div>
+        </div>
+      </div>
+      <div class="why-right reveal-right">
+        <div class="section-label">Why DigiProTax</div>
+        <h2 class="section-title" id="why-heading">Kyon Chunein<br><em>Hume?</em></h2>
+        <p class="section-sub">India bhar ke clients hum par bharosa karte hain. 500+ satisfied clients aur growing — ek professional team jo aapki har tax &amp; compliance zaroorat ko samjhe.</p>
+        <div class="why-stat-grid" role="list" aria-label="Company achievements">
+          <div class="why-stat reveal delay-1" role="listitem"><div class="ws-v">500+</div><div class="ws-k">Happy &amp; Satisfied Clients</div></div>
+          <div class="why-stat reveal delay-2" role="listitem"><div class="ws-v">8+</div><div class="ws-k">Years of Tax Expertise</div></div>
+          <div class="why-stat reveal delay-3" role="listitem"><div class="ws-v">100%</div><div class="ws-k">Online — No Visit Needed</div></div>
+          <div class="why-stat reveal delay-4" role="listitem"><div class="ws-v">24hr</div><div class="ws-k">Max Response Time</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PROCESS ══════════ -->
+<section class="process section" id="process" aria-labelledby="process-heading">
+  <div class="container">
+    <div class="process-header reveal">
+      <div class="section-label">How It Works</div>
+      <h2 class="section-title" id="process-heading">4 Simple <em>Steps</em></h2>
+      <p class="section-sub" style="margin:0 auto;text-align:center">Ghar baithe puri service — 100% online, zero office visit</p>
+    </div>
+    <div class="process-steps" role="list" aria-label="Service process steps">
+      <div class="p-step reveal delay-1" role="listitem">
+        <div class="p-num" aria-label="Step 1">01</div>
+        <div class="p-icon" aria-hidden="true">📲</div>
+        <div class="p-title">WhatsApp Karein</div>
+        <p class="p-desc">8286383816 par message karein. Bataein kaunsi service chahiye. Free consultation milegi.</p>
+      </div>
+      <div class="p-step reveal delay-2" role="listitem">
+        <div class="p-num" aria-label="Step 2">02</div>
+        <div class="p-icon" aria-hidden="true">📁</div>
+        <div class="p-title">Documents Bhejein</div>
+        <p class="p-desc">WhatsApp pe hi documents share karein. Secure aur quick. Pan, Aadhaar, Form 16 etc.</p>
+      </div>
+      <div class="p-step reveal delay-3" role="listitem">
+        <div class="p-num" aria-label="Step 3">03</div>
+        <div class="p-icon" aria-hidden="true">✅</div>
+        <div class="p-title">Review &amp; Approve</div>
+        <p class="p-desc">Hum draft taiyar karenge. Aap review aur digitally approve karein. Ekdum simple.</p>
+      </div>
+      <div class="p-step reveal delay-4" role="listitem">
+        <div class="p-num" aria-label="Step 4">04</div>
+        <div class="p-icon" aria-hidden="true">🎉</div>
+        <div class="p-title">Done! Acknowledgement</div>
+        <p class="p-desc">Filing complete! Acknowledgement aapke email pe. Itna hi aasaan hai DigiProTax ke saath.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ TESTIMONIALS ══════════ -->
+<section class="testimonials section" aria-labelledby="testi-heading">
+  <div class="container">
+    <div class="testi-header reveal">
+      <div class="section-label">Client Stories</div>
+      <h2 class="section-title" id="testi-heading">Clients Kya <em>Kehte Hain</em></h2>
+    </div>
+    <div class="testi-grid" role="list" aria-label="Client testimonials">
+      <article class="testi-card reveal delay-1" role="listitem">
+        <div class="testi-stars" aria-label="5 star rating">★★★★★</div>
+        <div class="testi-quote" aria-hidden="true">"</div>
+        <p class="testi-text">DigiProTax ne mera ITR 1 din mein file kar diya. Form 16 bheja, unho ne sab handle kiya. Refund bhi jaldi aa gaya. Bahut professional service!</p>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">R</div>
+          <div><div class="testi-name">Rahul Sharma</div><div class="testi-role">Salaried Professional, Pune</div></div>
+        </div>
+      </article>
+      <article class="testi-card reveal delay-2" role="listitem">
+        <div class="testi-stars" aria-label="5 star rating">★★★★★</div>
+        <div class="testi-quote" aria-hidden="true">"</div>
+        <p class="testi-text">Meri dukaan ka GST registration aur monthly returns — sab kuch DigiProTax sambhalta hai. Mujhe kuch nahi karna padta. Best service in budget!</p>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">P</div>
+          <div><div class="testi-name">Priya Mehta</div><div class="testi-role">Shop Owner, Mumbai</div></div>
+        </div>
+      </article>
+      <article class="testi-card reveal delay-3" role="listitem">
+        <div class="testi-stars" aria-label="5 star rating">★★★★★</div>
+        <div class="testi-quote" aria-hidden="true">"</div>
+        <p class="testi-text">Pvt Ltd company ka ROC compliance aur TDS filing — sab ek jagah. IT notice aaya tha, 24 ghante mein reply kar diya. Outstanding team!</p>
+        <div class="testi-author">
+          <div class="testi-avatar" aria-hidden="true">A</div>
+          <div><div class="testi-name">Anil Gupta</div><div class="testi-role">Business Owner, Delhi</div></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA BAND ══════════ -->
+<section class="cta-band" aria-labelledby="cta-heading">
+  <div class="cta-band-glow" aria-hidden="true"></div>
+  <div class="cta-band-inner reveal">
+    <h2 class="cta-band-h" id="cta-heading">
+      Abhi Start Karein<br><em>Free Consultation</em>
+    </h2>
+    <p class="cta-band-p">ITR filing deadline 31 July 2026 nazar aa rahi hai. Penalty se bachein — abhi WhatsApp karein aur free consultation lein.</p>
+    <div class="cta-band-btns">
+      <a href="https://wa.me/918286383816" class="btn btn-wa" target="_blank" rel="noopener" aria-label="WhatsApp for free consultation">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        WhatsApp: 8286383816
+      </a>
+      <a href="#services" class="btn btn-outline" aria-label="Explore all services">Explore Services</a>
+    </div>
+    <p class="cta-band-note" aria-hidden="true">✦ Free consultation · No hidden fees · 100% Online Service</p>
+  </div>
+</section>
+
+<!-- ══════════ CONTACT ══════════ -->
+<section class="contact section" id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+    <div class="section-label reveal">Get In Touch</div>
+    <h2 class="section-title reveal" id="contact-heading">Humse <em>Milein</em></h2>
+    <div class="contact-inner" style="margin-top:40px">
+      <div class="contact-info" role="list" aria-label="Contact information">
+        <div class="c-item reveal delay-1" role="listitem">
+          <div class="c-icon" aria-hidden="true">📲</div>
+          <div class="c-text">
+            <p>WhatsApp / Call</p>
+            <a href="https://wa.me/918286383816" target="_blank" rel="noopener" aria-label="WhatsApp 8286383816">8286383816</a>
+          </div>
+        </div>
+        <div class="c-item reveal delay-2" role="listitem">
+          <div class="c-icon" aria-hidden="true">⏰</div>
+          <div class="c-text">
+            <p>Working Hours</p>
+            <b>Mon–Sat: 9 AM – 7 PM</b>
+          </div>
+        </div>
+        <div class="c-item reveal delay-3" role="listitem">
+          <div class="c-icon" aria-hidden="true">📅</div>
+          <div class="c-text">
+            <p>Current Assessment Year</p>
+            <b>AY 2026–27 (FY 2025–26)</b>
+          </div>
+        </div>
+        <div class="c-item reveal delay-4" role="listitem">
+          <div class="c-icon" aria-hidden="true">⚡</div>
+          <div class="c-text">
+            <p>Response Time</p>
+            <b>Within 24 Hours — Guaranteed</b>
+          </div>
+        </div>
+        <div class="c-item reveal delay-4" role="listitem">
+          <div class="c-icon" aria-hidden="true">🌐</div>
+          <div class="c-text">
+            <p>Service Area</p>
+            <b>Pan India — 100% Online</b>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form reveal-right" role="complementary" aria-label="Send us a message">
+        <div class="cf-title">Quick Message</div>
+        <p class="cf-sub">Apni query bhejein — hum jaldi reply karenge!</p>
+        <form onsubmit="submitForm(event)" novalidate aria-label="Contact form">
+          <div class="cf-row">
+            <div class="cf-field">
+              <label for="cf-name">Aapka Naam *</label>
+              <input type="text" id="cf-name" name="name" placeholder="Your full name" required aria-required="true" autocomplete="name">
+            </div>
+            <div class="cf-field">
+              <label for="cf-phone">Phone / WhatsApp *</label>
+              <input type="tel" id="cf-phone" name="phone" placeholder="10-digit number" required aria-required="true" autocomplete="tel" pattern="[0-9]{10}">
+            </div>
+          </div>
+          <div class="cf-field">
+            <label for="cf-service">Service Required *</label>
+            <select id="cf-service" name="service" required aria-required="true">
+              <option value="" disabled selected>Select a service…</option>
+              <option>ITR Filing (AY 2026–27)</option>
+              <option>GST Registration</option>
+              <option>GST Return Filing</option>
+              <option>TDS &amp; Return Filing</option>
+              <option>ROC Compliance</option>
+              <option>Tax Planning</option>
+              <option>Audit Advisory</option>
+              <option>Business Registration</option>
+              <option>Business Certificates</option>
+              <option>Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="cf-field">
+            <label for="cf-msg">Message (Optional)</label>
+            <textarea id="cf-msg" name="message" placeholder="Koi bhi sawaal ya detail yahan likhein…"></textarea>
+          </div>
+          <button type="submit" class="cf-submit" aria-label="Send message via WhatsApp">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Send via WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer" role="contentinfo" aria-label="Site footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="fb-logo">DIGI<em>PRO</em>TAX</span>
+        <p>India's trusted tax consultancy. Expert ITR filing, GST, TDS, ROC compliance, tax planning, audit advisory &amp; business registrations. Serving clients pan-India online.</p>
+        <span class="fb-ay">✦ AY 2026–27 · FY 2025–26</span>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="#services">ITR Filing</a></li>
+          <li><a href="#services">GST Services</a></li>
+          <li><a href="#services">TDS &amp; Returns</a></li>
+          <li><a href="#services">ROC Compliance</a></li>
+          <li><a href="#services">Tax Planning</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>More Services</h5>
+        <ul>
+          <li><a href="#services">Audit Advisory</a></li>
+          <li><a href="#services">Business Registration</a></li>
+          <li><a href="#services">Certificates</a></li>
+          <li><a href="#services">NRI Tax Services</a></li>
+          <li><a href="#services">Bookkeeping</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="https://wa.me/918286383816" target="_blank" rel="noopener">📲 8286383816</a></li>
+          <li><a href="#why-us">Why Choose Us</a></li>
+          <li><a href="#process">How It Works</a></li>
+          <li><a href="#contact">Send Message</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 DigiProTax. All rights reserved. AY 2026–27 · FY 2025–26</p>
+      <div class="fb-right">
+        <a href="#home">Back to Top ↑</a>
+        <a href="https://wa.me/918286383816" target="_blank" rel="noopener">WhatsApp Us</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════ FLOATING WHATSAPP ══════════ -->
+<div class="wa-float" role="complementary" aria-label="WhatsApp contact">
+  <div class="wa-bubble" id="wa-bubble" role="tooltip">
+    <p>Need tax help? Chat now 👋</p>
+    <b>WhatsApp: 8286383816</b>
+  </div>
+  <a href="https://wa.me/918286383816" class="wa-btn-float" target="_blank" rel="noopener" aria-label="Chat on WhatsApp with DigiProTax">
+    <div class="wa-ping" aria-hidden="true">1</div>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+  </a>
+</div>
+
+<!-- ══════════ BACK TO TOP ══════════ -->
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="Back to top">↑</button>
+
+<script>
+/* ── HERO CANVAS ── */
+(function(){
+  const c=document.getElementById('hero-canvas');
+  if(!c)return;
+  const x=c.getContext('2d');
+  function resize(){c.width=c.parentElement.offsetWidth;c.height=c.parentElement.offsetHeight}
+  resize();window.addEventListener('resize',resize);
+  const syms=['₹','%','TAX','ITR','GST','TDS','80C','NPS','AY'];
+  const pts=Array.from({length:40},()=>({
+    x:Math.random()*c.width,y:Math.random()*c.height,
+    s:syms[Math.floor(Math.random()*syms.length)],
+    sz:Math.random()*10+7,sp:Math.random()*.3+.1,
+    op:Math.random()*.06+.02
+  }));
+  function draw(){
+    x.clearRect(0,0,c.width,c.height);
+    pts.forEach(p=>{
+      x.font=`${p.sz}px 'Space Mono',monospace`;
+      x.fillStyle=`rgba(201,168,76,${p.op})`;
+      x.fillText(p.s,p.x,p.y);
+      p.y-=p.sp;
+      if(p.y<-20){p.y=c.height+20;p.x=Math.random()*c.width}
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ── NAVBAR SCROLL ── */
+window.addEventListener('scroll',()=>{
+  const nav=document.getElementById('navbar');
+  const btt=document.getElementById('btt');
+  if(window.scrollY>60){nav.classList.add('scrolled');btt.classList.add('show')}
+  else{nav.classList.remove('scrolled');btt.classList.remove('show')}
+},{passive:true});
+
+/* ── MOBILE MENU ── */
+const ham=document.getElementById('hamburger');
+const mob=document.getElementById('mob-menu');
+ham.addEventListener('click',()=>{
+  const open=mob.classList.toggle('open');
+  ham.setAttribute('aria-expanded',open);
+  ham.querySelectorAll('span').forEach((s,i)=>{
+    if(open){
+      if(i===0)s.style.transform='rotate(45deg) translate(5px,5px)';
+      if(i===1)s.style.opacity='0';
+      if(i===2)s.style.transform='rotate(-45deg) translate(5px,-5px)';
+    }else{
+      s.style.transform='';s.style.opacity='';
+    }
+  });
+});
+function closeMob(){
+  mob.classList.remove('open');
+  ham.setAttribute('aria-expanded','false');
+  ham.querySelectorAll('span').forEach(s=>{s.style.transform='';s.style.opacity=''});
+}
+
+/* ── SCROLL REVEAL ── */
+const reveals=document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target)}});
+},{threshold:.12});
+reveals.forEach(el=>io.observe(el));
+
+/* ── KEYBOARD FLIP (accessibility) ── */
+document.querySelectorAll('.flip-wrap').forEach(card=>{
+  card.addEventListener('keydown',e=>{
+    if(e.key==='Enter'||e.key===' '){
+      e.preventDefault();
+      card.querySelector('.flip-inner').style.transform=
+        card.querySelector('.flip-inner').style.transform?'':'rotateY(180deg)';
+    }
+  });
+});
+
+/* ── CONTACT FORM → WhatsApp ── */
+function submitForm(e){
+  e.preventDefault();
+  const name=document.getElementById('cf-name').value.trim();
+  const phone=document.getElementById('cf-phone').value.trim();
+  const service=document.getElementById('cf-service').value;
+  const msg=document.getElementById('cf-msg').value.trim();
+  if(!name||!phone||!service){alert('Please fill all required fields.');return}
+  const text=`Namaste DigiProTax! 🙏%0A%0AMera naam: ${encodeURIComponent(name)}%0APhone: ${phone}%0AService: ${encodeURIComponent(service)}${msg?'%0AMessage: '+encodeURIComponent(msg):''}%0A%0APlease guide me.`;
+  window.open(`https://wa.me/918286383816?text=${text}`,'_blank');
+}
+</script>
+</body>
+</html>
